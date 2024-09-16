@@ -16,7 +16,7 @@ function App() {
         <input type="email" name="" id="" placeholder="Email" className='p-3 rounded-sm bg-[#f8f8f8] w-full font-bold outline-none focus:border-b-2 hover:border-blue-300' />
         <input type="number" name="" id="" placeholder="Age" className='p-3 rounded-sm bg-[#f8f8f8] w-full font-bold outline-none focus:border-b-2 hover:border-blue-300'/>
         <input type="password" name="" id="" placeholder="Password" className='p-3 rounded-sm bg-[#f8f8f8] w-full font-bold outline-none focus:border-b-2 hover:border-blue-300'/>
-        <button type="submit" className='w-full p-3  rounded-md outline-none font-bold text-white bg-blue-300 '>Login</button> 
+        <button type="submit" className='w-full p-3  rounded-md outline-none font-bold text-white bg-blue-300 '>Register</button> 
 
         </form>   
         </div>
