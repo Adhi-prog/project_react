@@ -26,7 +26,7 @@
 // }
 
 // export default App
-import Navbar from "./NavBar";  
+import Navbar from "./components/NavBar";  
 
 const App = () => {
   const appName = "M-A-X";
