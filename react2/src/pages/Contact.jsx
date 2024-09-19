@@ -40,7 +40,7 @@ const Contact = () => {
     
     if (email === 'user@example.com' && password === 'password123') {
       setLoginResult('Login successful!');
-      setPopupVisible(false); // Close the popup on success
+      setPopupVisible(false); 
     } else {
       setLoginResult('Invalid credentials. Please try again.');
     }
@@ -78,7 +78,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
-                  ref={emailRef} // Reference for email input
+                  ref={emailRef} 
                   placeholder="Enter your email"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
@@ -90,7 +90,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="password"
-                  ref={passwordRef} // Reference for password input
+                  ref={passwordRef} 
                   placeholder="Enter your password"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
