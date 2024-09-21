@@ -10,110 +10,94 @@
 // }
 
 // export default Contact
-import React, { useState, useRef } from 'react';
-import Navbar from "../components/Navbar";
+import React, { useState } from 'react';
 
 const Contact = () => {
-  
-  const [isPopupVisible, setPopupVisible] = useState(false);
-  
- 
-  const [loginResult, setLoginResult] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
- 
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  
-  const togglePopup = () => {
-    setPopupVisible(!isPopupVisible);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-   
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-
-    
-    if (email === 'user@example.com' && password === 'password123') {
-      setLoginResult('Login successful!');
-      setPopupVisible(false); 
-    } else {
-      setLoginResult('Invalid credentials. Please try again.');
-    }
+    console.log('Form submitted:', formData);
+    setSubmitMessage('Thank you for reaching out! I will get back to you soon.');
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+    });
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="p-4 text-center text-xl font-semibold">Contact</div>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-100 to-blue-300 p-6">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">Contact Me</h2>
 
-     
-      <button
-        onClick={togglePopup}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Login
-      </button>
-
-      
-      {loginResult && (
-        <div className="text-center mt-4 text-red-500">
-          {loginResult}
-        </div>
-      )}
-
-      
-      {isPopupVisible && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-            <h3 className="text-2xl font-bold mb-4 text-gray-800">Login</h3>
-            <form onSubmit={handleLogin}>
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Email:
-                </label>
-                <input
-                  type="email"
-                  ref={emailRef} 
-                  placeholder="Enter your email"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Password:
-                </label>
-                <input
-                  type="password"
-                  ref={passwordRef} 
-                  placeholder="Enter your password"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full"
-              >
-                Login
-              </button>
-              <button
-                type="button"
-                onClick={togglePopup}
-                className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
-              >
-                Close
-              </button>
-            </form>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your name"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
           </div>
-        </div>
-      )}
-    </>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your email"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your message"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              rows="5"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+
+        {submitMessage && (
+          <p className="text-center text-green-500 mt-4">{submitMessage}</p>
+        )}
+      </div>
+    </div>
   );
 };
 

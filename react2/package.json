@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "browser": "^0.2.6",
+    "framer-motion": "^11.5.5",
     "lucide-react": "^0.441.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
