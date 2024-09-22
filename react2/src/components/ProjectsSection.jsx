@@ -15,7 +15,7 @@ const ProjectsSection = () => {
       techStack: ['Python', 'OCR', 'Tkinter'],
       githubLink: 'https://github.com/your-username/image-to-text-converter',
     },
-    // Add more projects as needed
+    
   ];
 
   return (

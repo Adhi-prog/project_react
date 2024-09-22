@@ -30,7 +30,7 @@ import Contact from './pages/Contact';
 const App = () => {
   return (
     <BrowserRouter>
-      {/* Apply a gradient background to the whole page */}
+     
       <div className="min-h-screen flex flex-col bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
         <Navbar /> 
 
