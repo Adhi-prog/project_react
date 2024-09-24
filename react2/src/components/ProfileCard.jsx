@@ -3,8 +3,8 @@ import AdhiProfileCard from '../assets/img/adhi.jpg';
 
 const ProfileCard = () => {
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500"> {/* Full page alignment with gradient */}
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto"> {/* Adjusted padding */}
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500"> 
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto"> 
         <img
           src={AdhiProfileCard}
           alt="Profile"

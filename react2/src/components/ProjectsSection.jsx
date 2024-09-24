@@ -13,7 +13,7 @@ const ProjectsSection = () => {
       title: 'Image-to-Text Converter',
       description: 'A Python-based app that converts images to text using OCR (Pytesseract) and exports the results.',
       techStack: ['Python', 'OCR', 'Tkinter'],
-      githubLink: 'https://github.com/your-username/image-to-text-converter',
+      githubLink: 'https://github.com/Adhi-prog/python-prog.git',
     },
     
   ];
