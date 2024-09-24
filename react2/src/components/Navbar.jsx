@@ -30,26 +30,66 @@
 // }
 
 // export default Navbar
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="bg-gray-800 text-white py-4">
+    <nav className="bg-gray-800 text-white py-4 fixed w-full z-50 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold">My Portfolio</div>
-        <ul className="flex space-x-6">
+        <div className="text-3xl font-bold">
+          <Link to="/">My Portfolio</Link>
+        </div>
+        <div className="hidden md:flex space-x-6">
           <Link to="/profile">
-            <li className="hover:text-yellow-400">Profile</li>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Profile</li>
           </Link>
           <Link to="/projects">
-            <li className="hover:text-yellow-400">Projects</li>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Projects</li>
           </Link>
           <Link to="/skills">
-            <li className="hover:text-yellow-400">Skills</li>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Skills</li>
           </Link>
           <Link to="/contact">
-            <li className="hover:text-yellow-400">Contact</li>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Contact</li>
+          </Link>
+        </div>
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="focus:outline-none">
+            {isOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
+        <ul className="flex flex-col items-center bg-gray-700 py-4 space-y-4">
+          <Link to="/profile" onClick={toggleMenu}>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Profile</li>
+          </Link>
+          <Link to="/projects" onClick={toggleMenu}>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Projects</li>
+          </Link>
+          <Link to="/skills" onClick={toggleMenu}>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Skills</li>
+          </Link>
+          <Link to="/contact" onClick={toggleMenu}>
+            <li className="hover:text-yellow-400 transition-colors duration-300">Contact</li>
           </Link>
         </ul>
       </div>

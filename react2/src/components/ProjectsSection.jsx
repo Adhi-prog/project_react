@@ -15,14 +15,17 @@ const ProjectsSection = () => {
       techStack: ['Python', 'OCR', 'Tkinter'],
       githubLink: 'https://github.com/Adhi-prog/python-prog.git',
     },
-    
   ];
 
   return (
-    <section id="projects" className="py-16 bg-gradient-to-r from-green-200 via-blue-200 to-purple-200">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="projects" className="py-16 bg-gradient-to-r from-green-100 via-blue-100 to-purple-100">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">My Projects</h2>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Here are some of the projects I’ve worked on recently. These showcase my skills in full-stack development,
+          especially in MERN stack and Python-based applications.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
